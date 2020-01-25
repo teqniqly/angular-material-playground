@@ -25,7 +25,8 @@
       ],
       "@tq/fitness-tracker/welcome": [
         "libs/fitness-tracker/welcome/src/index.ts"
-      ]
+      ],
+      "@tq/ui/material-ui": ["libs/ui/material-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

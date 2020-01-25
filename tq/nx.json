@@ -26,6 +26,9 @@
     },
     "fitness-tracker-training": {
       "tags": []
+    },
+    "ui-material-ui": {
+      "tags": []
     }
   }
 }
