@@ -17,6 +17,15 @@
     "fitness-tracker-e2e": {
       "tags": [],
       "implicitDependencies": ["fitness-tracker"]
+    },
+    "fitness-tracker-auth": {
+      "tags": []
+    },
+    "fitness-tracker-welcome": {
+      "tags": []
+    },
+    "fitness-tracker-training": {
+      "tags": []
     }
   }
 }

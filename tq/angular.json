@@ -87,10 +87,7 @@
               "apps/fitness-tracker/tsconfig.app.json",
               "apps/fitness-tracker/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/fitness-tracker/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/fitness-tracker/**"]
           }
         },
         "test": {
@@ -124,14 +121,108 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
+            "tsConfig": ["apps/fitness-tracker-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/fitness-tracker-e2e/**"]
+          }
+        }
+      }
+    },
+    "fitness-tracker-auth": {
+      "projectType": "library",
+      "root": "libs/fitness-tracker/auth",
+      "sourceRoot": "libs/fitness-tracker/auth/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
             "tsConfig": [
-              "apps/fitness-tracker-e2e/tsconfig.e2e.json"
+              "libs/fitness-tracker/auth/tsconfig.lib.json",
+              "libs/fitness-tracker/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/fitness-tracker/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fitness-tracker/auth/jest.config.js",
+            "tsConfig": "libs/fitness-tracker/auth/tsconfig.spec.json",
+            "setupFile": "libs/fitness-tracker/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "fitness-tracker-welcome": {
+      "projectType": "library",
+      "root": "libs/fitness-tracker/welcome",
+      "sourceRoot": "libs/fitness-tracker/welcome/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fitness-tracker/welcome/tsconfig.lib.json",
+              "libs/fitness-tracker/welcome/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!apps/fitness-tracker-e2e/**"
+              "!libs/fitness-tracker/welcome/**"
             ]
           }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fitness-tracker/welcome/jest.config.js",
+            "tsConfig": "libs/fitness-tracker/welcome/tsconfig.spec.json",
+            "setupFile": "libs/fitness-tracker/welcome/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "fitness-tracker-training": {
+      "projectType": "library",
+      "root": "libs/fitness-tracker/training",
+      "sourceRoot": "libs/fitness-tracker/training/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fitness-tracker/training/tsconfig.lib.json",
+              "libs/fitness-tracker/training/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fitness-tracker/training/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fitness-tracker/training/jest.config.js",
+            "tsConfig": "libs/fitness-tracker/training/tsconfig.spec.json",
+            "setupFile": "libs/fitness-tracker/training/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }
