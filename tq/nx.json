@@ -17,6 +17,9 @@
     "fitness-tracker-e2e": {
       "tags": [],
       "implicitDependencies": ["fitness-tracker"]
+    },
+    "fitness-tracker-app-shell": {
+      "tags": []
     }
   }
 }

@@ -9,7 +9,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: 'fitness-tracker-app-shell',
+          loadChildren: () =>
+            import('@tq/fitness-tracker/app-shell').then(
+              module => module.FitnessTrackerAppShellModule
+            )
+        }
+      ],
+      { initialNavigation: 'enabled' }
+    ),
     BrowserAnimationsModule
   ],
   providers: [],
