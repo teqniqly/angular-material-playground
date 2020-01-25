@@ -1,0 +1,10 @@
+.vscode
+node_modules
+tools
+dist
+build.ps1
+*.md
+package-lock.json
+.editorconfig
+.gitignore
+.prettier*
