@@ -18,10 +18,10 @@
       "tags": [],
       "implicitDependencies": ["fitness-tracker"]
     },
-    "fitness-tracker-app-shell": {
+    "fitness-tracker-auth": {
       "tags": []
     },
-    "fitness-tracker-auth": {
+    "fitness-tracker-welcome": {
       "tags": []
     },
     "fitness-tracker-training": {
