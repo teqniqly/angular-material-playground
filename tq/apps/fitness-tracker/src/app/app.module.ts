@@ -12,10 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot(
       [
         {
-          path: 'fitness-tracker-app-shell',
+          path: '**',
           loadChildren: () =>
-            import('@tq/fitness-tracker/app-shell').then(
-              module => module.FitnessTrackerAppShellModule
+            import('@tq/fitness-tracker/welcome').then(
+              module => module.FitnessTrackerWelcomeModule
             )
         }
       ],

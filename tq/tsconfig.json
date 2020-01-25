@@ -19,7 +19,10 @@
       "@tq/fitness-tracker/app-shell": [
         "libs/fitness-tracker/app-shell/src/index.ts"
       ],
-      "@tq/fitness-tracker/auth": ["libs/fitness-tracker/auth/src/index.ts"]
+      "@tq/fitness-tracker/auth": ["libs/fitness-tracker/auth/src/index.ts"],
+      "@tq/fitness-tracker/welcome": [
+        "libs/fitness-tracker/welcome/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
