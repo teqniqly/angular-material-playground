@@ -25,7 +25,10 @@
               "apps/fitness-tracker/src/favicon.ico",
               "apps/fitness-tracker/src/assets"
             ],
-            "styles": ["apps/fitness-tracker/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/fitness-tracker/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +87,10 @@
               "apps/fitness-tracker/tsconfig.app.json",
               "apps/fitness-tracker/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/fitness-tracker/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/fitness-tracker/**"
+            ]
           }
         },
         "test": {
@@ -118,8 +124,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/fitness-tracker-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/fitness-tracker-e2e/**"]
+            "tsConfig": [
+              "apps/fitness-tracker-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/fitness-tracker-e2e/**"
+            ]
           }
         }
       }
