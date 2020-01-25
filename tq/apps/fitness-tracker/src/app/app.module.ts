@@ -12,6 +12,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot(
       [
         {
+          path: 'auth',
+          loadChildren: () =>
+            import('@tq/fitness-tracker/auth').then(
+              module => module.FitnessTrackerAuthModule
+            )
+        },
+        {
+          path: 'training',
+          loadChildren: () =>
+            import('@tq/fitness-tracker/training').then(
+              module => module.FitnessTrackerTrainingModule
+            )
+        },
+        {
           path: '**',
           loadChildren: () =>
             import('@tq/fitness-tracker/welcome').then(
