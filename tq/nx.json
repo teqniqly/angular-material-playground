@@ -10,5 +10,13 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "fitness-tracker": {
+      "tags": []
+    },
+    "fitness-tracker-e2e": {
+      "tags": [],
+      "implicitDependencies": ["fitness-tracker"]
+    }
+  }
 }

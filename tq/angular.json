@@ -1,7 +1,141 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "fitness-tracker": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/fitness-tracker",
+      "sourceRoot": "apps/fitness-tracker/src",
+      "prefix": "tq",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/fitness-tracker",
+            "index": "apps/fitness-tracker/src/index.html",
+            "main": "apps/fitness-tracker/src/main.ts",
+            "polyfills": "apps/fitness-tracker/src/polyfills.ts",
+            "tsConfig": "apps/fitness-tracker/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/fitness-tracker/src/favicon.ico",
+              "apps/fitness-tracker/src/assets"
+            ],
+            "styles": ["apps/fitness-tracker/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/fitness-tracker/src/environments/environment.ts",
+                  "with": "apps/fitness-tracker/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fitness-tracker:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fitness-tracker:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fitness-tracker:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/fitness-tracker/tsconfig.app.json",
+              "apps/fitness-tracker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/fitness-tracker/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/fitness-tracker/jest.config.js",
+            "tsConfig": "apps/fitness-tracker/tsconfig.spec.json",
+            "setupFile": "apps/fitness-tracker/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "fitness-tracker-e2e": {
+      "root": "apps/fitness-tracker-e2e",
+      "sourceRoot": "apps/fitness-tracker-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/fitness-tracker-e2e/cypress.json",
+            "tsConfig": "apps/fitness-tracker-e2e/tsconfig.e2e.json",
+            "devServerTarget": "fitness-tracker:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fitness-tracker:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/fitness-tracker-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/fitness-tracker-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "fitness-tracker"
 }
