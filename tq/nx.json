@@ -20,6 +20,9 @@
     },
     "fitness-tracker-app-shell": {
       "tags": []
+    },
+    "fitness-tracker-auth": {
+      "tags": []
     }
   }
 }

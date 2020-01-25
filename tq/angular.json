@@ -160,6 +160,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "fitness-tracker-auth": {
+      "projectType": "library",
+      "root": "libs/fitness-tracker/auth",
+      "sourceRoot": "libs/fitness-tracker/auth/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fitness-tracker/auth/tsconfig.lib.json",
+              "libs/fitness-tracker/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/fitness-tracker/auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fitness-tracker/auth/jest.config.js",
+            "tsConfig": "libs/fitness-tracker/auth/tsconfig.spec.json",
+            "setupFile": "libs/fitness-tracker/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
