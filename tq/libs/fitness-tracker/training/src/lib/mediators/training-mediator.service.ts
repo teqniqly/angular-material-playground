@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { TrainingService } from '../services/training.service';
+import { Exercise } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class TrainingMediatorService {
   private isExercising$ = new BehaviorSubject<boolean>(false);
   private progressValue = 0;
 
-  constructor() {}
+  constructor(private trainingService: TrainingService) {}
 
   get progress() {
     return this.progress$.asObservable();
@@ -18,6 +20,10 @@ export class TrainingMediatorService {
 
   get isExercising() {
     return this.isExercising$.asObservable();
+  }
+
+  getExercises(): Observable<Exercise[]> {
+    return this.trainingService.getExercises();
   }
 
   public resumeExercise(): void {
