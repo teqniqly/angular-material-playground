@@ -38,6 +38,7 @@
         Sign in
       </button>
       <mat-error *ngIf="showLoginError">The email or password is incorrect.</mat-error>
+      <a [routerLink]="['/auth/signup']">Sign up for an account.</a>
     </form>
   </section>
   
