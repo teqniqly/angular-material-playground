@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -31,7 +26,7 @@ export class SignupComponent implements OnInit {
   onSubmit(form: NgForm): void {
     console.log(form);
 
-    if(!form.value.agree) {
+    if (!form.value.agree) {
       this.showTermsError = true;
     } else {
       this.showTermsError = false;
