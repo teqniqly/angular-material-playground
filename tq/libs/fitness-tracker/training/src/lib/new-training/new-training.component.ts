@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { TrainingService } from '../services/training.service';
+import { Observable } from 'rxjs';
+import { Exercise } from '../models';
 
 @Component({
   selector: 'tq-new-training',
@@ -6,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-training.component.scss']
 })
 export class NewTrainingComponent implements OnInit {
-  constructor() {}
+  public exercises$: Observable<Exercise[]>;
 
-  ngOnInit() {}
+  @Output()
+  submitClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private trainingService: TrainingService) {}
+
+  ngOnInit() {
+    this.exercises$ = this.trainingService.getExercises();
+  }
+
+  onSubmitClicked(): void {
+    this.submitClicked.emit();
+  }
 }

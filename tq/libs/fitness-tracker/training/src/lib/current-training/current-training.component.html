@@ -1,1 +1,28 @@
-<p>current-training works!</p>
+<section
+  class="default-padding"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
+  <mat-progress-spinner
+    mode="determinate"
+    [value]="progress"
+  ></mat-progress-spinner>
+  <h1>{{ progress }}%</h1>
+  <p>Keep going! You can do it!</p>
+  <button
+    *ngIf="exercising"
+    mat-raised-button
+    color="warn"
+    (click)="onStopClicked()"
+  >
+    Stop
+  </button>
+  <button
+    *ngIf="!exercising"
+    mat-raised-button
+    color="primary"
+    (click)="onResumeClicked()"
+  >
+    Resume
+  </button>
+</section>
