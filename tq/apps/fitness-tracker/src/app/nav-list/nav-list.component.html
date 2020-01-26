@@ -1,17 +1,17 @@
 <mat-nav-list>
-  <a mat-list-item [routerLink]="['/auth/signup']" (click)="sidenav.close()">
+  <a mat-list-item [routerLink]="['/auth/signup']" (click)="onCloseSidenav()">
     <mat-icon>people</mat-icon>
     <span class="nav-span">Signup</span>
   </a>
-  <a mat-list-item [routerLink]="['/auth/login']" (click)="sidenav.close()">
+  <a mat-list-item [routerLink]="['/auth/login']" (click)="onCloseSidenav()">
     <mat-icon>input</mat-icon>
     <span class="nav-span">Login</span>
   </a>
-  <a mat-list-item [routerLink]="['/training']" (click)="sidenav.close()">
+  <a mat-list-item [routerLink]="['/training']" (click)="onCloseSidenav()">
     <mat-icon>fitness_center</mat-icon>
     <span class="nav-span">Training</span>
   </a>
-  <a mat-list-item [routerLink]="['/auth/logout']" (click)="sidenav.close()">
+  <a mat-list-item [routerLink]="['/auth/logout']" (click)="onCloseSidenav()">
     <mat-icon>exit_to_app</mat-icon>
     <span class="nav-span">Logout</span>
   </a>

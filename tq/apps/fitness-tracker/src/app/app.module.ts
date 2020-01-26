@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiMaterialUiModule } from '@tq/ui/material-ui';
 import { NavListComponent } from './nav-list/nav-list.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [AppComponent, NavListComponent],
+  declarations: [AppComponent, NavListComponent, ToolbarComponent],
   imports: [
     BrowserModule,
     UiMaterialUiModule,

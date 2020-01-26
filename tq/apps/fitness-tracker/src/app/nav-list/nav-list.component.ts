@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'tq-nav-list',
@@ -8,5 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class NavListComponent implements OnInit {
   constructor() {}
 
+  @Output()
+  closeSidenav: EventEmitter<void> = new EventEmitter<void>();
+
   ngOnInit() {}
+
+  onCloseSidenav(): void {
+    this.closeSidenav.emit();
+  }
 }
