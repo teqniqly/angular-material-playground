@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiMaterialUiModule } from '@tq/ui/material-ui';
+import { NavListComponent } from './nav-list/nav-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavListComponent],
   imports: [
     BrowserModule,
     UiMaterialUiModule,
