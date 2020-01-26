@@ -13,7 +13,9 @@ import {
   MatSidenavModule,
   MatToolbarModule,
   MatListModule,
-  MatTabsModule
+  MatTabsModule,
+  MatCardModule,
+  MatSelectModule
 } from '@angular/material';
 
 @NgModule({
@@ -30,7 +32,9 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule
   ]
 })
 export class UiMaterialUiModule {}
