@@ -15,9 +15,7 @@ import {
 } from '@angular/material';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     FlexLayoutModule,
     MatButtonModule,
