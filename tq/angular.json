@@ -225,6 +225,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "ui-material-ui": {
+      "projectType": "library",
+      "root": "libs/ui/material-ui",
+      "sourceRoot": "libs/ui/material-ui/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/material-ui/tsconfig.lib.json",
+              "libs/ui/material-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/material-ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/material-ui/jest.config.js",
+            "tsConfig": "libs/ui/material-ui/tsconfig.spec.json",
+            "setupFile": "libs/ui/material-ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
