@@ -16,14 +16,7 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule,
-    FlexLayoutModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    CommonModule
   ],
   exports: [
     FlexLayoutModule,
