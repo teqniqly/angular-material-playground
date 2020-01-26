@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material';
 
 @Component({
@@ -8,8 +15,7 @@ import { MatDatepickerInputEvent } from '@angular/material';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MaterialUiDatePickerComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   @Input()
   placeholder = 'Choose a date.';
@@ -23,11 +29,9 @@ export class MaterialUiDatePickerComponent implements OnInit {
   @Output()
   dateChanged: EventEmitter<Date> = new EventEmitter<Date>();
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onDateChanged(event:  MatDatepickerInputEvent<Date>): void {
+  onDateChanged(event: MatDatepickerInputEvent<Date>): void {
     this.dateChanged.emit(event.value);
   }
-
 }

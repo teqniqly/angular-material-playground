@@ -33,9 +33,9 @@
       [placeholder]="'Select your birthday'"
       [minDate]="minDate"
       [maxDate]="maxDate"
-      (dateChanged)="onDateChanged($event)"></tq-material-ui-date-picker
-      >
-      <mat-error *ngIf="showBirthDateNotSpecifiedError"
+      (dateChanged)="onDateChanged($event)"
+    ></tq-material-ui-date-picker>
+    <mat-error *ngIf="showBirthDateNotSpecifiedError"
       >Please enter your birthday.</mat-error
     >
     <button

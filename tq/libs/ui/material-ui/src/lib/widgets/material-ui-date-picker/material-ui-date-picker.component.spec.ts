@@ -11,9 +11,8 @@ describe('MaterialUiDatePickerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [ MaterialUiDatePickerComponent ]
-    })
-    .compileComponents();
+      declarations: [MaterialUiDatePickerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
