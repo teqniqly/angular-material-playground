@@ -1,11 +1,11 @@
-<mat-tab-group *ngIf="!currentlyTraining">
+<mat-tab-group *ngIf="!exerciseInProgress">
   <mat-tab label="New Exercise">
     <tq-new-training
-      (submitClicked)="currentlyTraining = true"
+      (submitClicked)="trainingMediator.startExercise()"
     ></tq-new-training>
   </mat-tab>
   <mat-tab label="Past Exercises">
     <tq-past-training></tq-past-training>
   </mat-tab>
 </mat-tab-group>
-<tq-current-training *ngIf="currentlyTraining"></tq-current-training>
+<tq-current-training *ngIf="exerciseInProgress"></tq-current-training>

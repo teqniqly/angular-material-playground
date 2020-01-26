@@ -10,15 +10,15 @@
   <h1>{{ trainingMediator.progress | async }}%</h1>
   <p>Keep going! You can do it!</p>
   <button
-    *ngIf="trainingMediator.isExercising | async"
+    *ngIf="exerciseInProgress"
     mat-raised-button
     color="warn"
-    (click)="onStopClicked()"
+    (click)="onPauseClicked()"
   >
-    Stop
+    Pause
   </button>
   <button
-    *ngIf="!(trainingMediator.isExercising | async)"
+    *ngIf="!exerciseInProgress"
     mat-raised-button
     color="primary"
     (click)="onResumeClicked()"
