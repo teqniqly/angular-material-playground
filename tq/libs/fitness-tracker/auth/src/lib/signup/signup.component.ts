@@ -42,8 +42,9 @@ export class SignupComponent implements OnInit {
     this.submitClicked.emit(form);
   }
 
-  onDateChanged(event: MatDatepickerInputEvent<Date>): void {
-    this.birthDate = event.value;
+  onDateChanged(date: Date): void {
+    this.birthDate = date;
+    console.log(this.birthDate);
     this.showBirthDateNotSpecifiedError = !this.birthDate;
   }
 }

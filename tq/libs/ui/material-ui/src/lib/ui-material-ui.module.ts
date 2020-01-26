@@ -10,10 +10,11 @@ import {
   MatDatepickerModule,
   MatNativeDateModule
 } from '@angular/material';
+import { MaterialUiDatePickerComponent } from './widgets/material-ui-date-picker/material-ui-date-picker.component';
 
 @NgModule({
-  imports: [CommonModule],
-  exports: [
+  imports: [
+    CommonModule,
     FlexLayoutModule,
     MatButtonModule,
     MatInputModule,
@@ -21,6 +22,17 @@ import {
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule
-  ]
+  ],
+  exports: [
+    FlexLayoutModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MaterialUiDatePickerComponent
+  ],
+  declarations: [MaterialUiDatePickerComponent]
 })
 export class UiMaterialUiModule {}
