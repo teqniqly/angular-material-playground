@@ -1,44 +1,45 @@
 <section>
-    <form
-      fxLayout="column"
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20px"
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+  >
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Enter your email address"
+        ngModel
+        name="email"
+        email
+        required
+      />
+      <mat-error>Please enter a valid email address.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Enter your password"
+        ngModel
+        name="password"
+        required
+      />
+    </mat-form-field>
+    <button
+      type="submit"
+      mat-raised-button
       fxLayoutAlign="center"
-      fxLayoutGap="20px"
-      #f="ngForm"
-      (ngSubmit)="onSubmit(f)"
+      color="primary"
+      [disabled]="f.invalid"
     >
-      <mat-form-field>
-        <input
-          type="email"
-          matInput
-          placeholder="Enter your email address"
-          ngModel
-          name="email"
-          email
-          required
-        />
-        <mat-error>Please enter a valid email address.</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="password"
-          matInput
-          placeholder="Enter your password"
-          ngModel
-          name="password"
-          required
-        />
-      </mat-form-field>
-      <button
-        type="submit"
-        mat-raised-button
-        fxLayoutAlign="center"
-        color="primary"
-        [disabled]="f.invalid"
-      >
-        Sign in
-      </button>
-      <mat-error *ngIf="showLoginError">The email or password is incorrect.</mat-error>
-      <a [routerLink]="['/auth/signup']">Sign up for an account.</a>
-    </form>
-  </section>
-  
+      Sign in
+    </button>
+    <mat-error *ngIf="showLoginError"
+      >The email or password is incorrect.</mat-error
+    >
+    <a [routerLink]="['/auth/signup']">Sign up for an account.</a>
+  </form>
+</section>
