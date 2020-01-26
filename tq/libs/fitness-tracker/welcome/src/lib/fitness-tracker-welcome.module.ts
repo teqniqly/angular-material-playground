@@ -7,8 +7,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: WelcomeComponent}
-    ])],
+      { path: '', pathMatch: 'full', component: WelcomeComponent }
+    ])
+  ],
   declarations: [WelcomeComponent]
 })
 export class FitnessTrackerWelcomeModule {}

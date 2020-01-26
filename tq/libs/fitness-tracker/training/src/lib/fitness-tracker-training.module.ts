@@ -9,10 +9,15 @@ import { PastTrainingComponent } from './past-training/past-training.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: 'new', pathMatch: 'full', component: NewTrainingComponent},
-      { path: 'past', pathMatch: 'full', component: PastTrainingComponent},
-      { path: '**', pathMatch: 'full', component: CurrentTrainingComponent}
-    ])],
-  declarations: [CurrentTrainingComponent, NewTrainingComponent, PastTrainingComponent]
+      { path: 'new', pathMatch: 'full', component: NewTrainingComponent },
+      { path: 'past', pathMatch: 'full', component: PastTrainingComponent },
+      { path: '**', pathMatch: 'full', component: CurrentTrainingComponent }
+    ])
+  ],
+  declarations: [
+    CurrentTrainingComponent,
+    NewTrainingComponent,
+    PastTrainingComponent
+  ]
 })
 export class FitnessTrackerTrainingModule {}

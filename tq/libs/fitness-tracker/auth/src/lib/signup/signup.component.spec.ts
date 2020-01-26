@@ -12,9 +12,8 @@ describe('SignupComponent', () => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
       imports: [FormsModule],
-      declarations: [ SignupComponent ]
-    })
-    .compileComponents();
+      declarations: [SignupComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
