@@ -8,9 +8,10 @@ import {
   MatButtonModule,
   MatInputModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatCheckbox,
+  MatCheckboxModule
 } from '@angular/material';
-import { MaterialUiDatePickerComponent } from './widgets/material-ui-date-picker/material-ui-date-picker.component';
 
 @NgModule({
   imports: [
@@ -31,8 +32,7 @@ import { MaterialUiDatePickerComponent } from './widgets/material-ui-date-picker
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MaterialUiDatePickerComponent
-  ],
-  declarations: [MaterialUiDatePickerComponent]
+    MatCheckboxModule
+  ]
 })
 export class UiMaterialUiModule {}

@@ -2,17 +2,9 @@ import {
   Component,
   OnInit,
   Output,
-  EventEmitter,
-  ViewChild,
-  ElementRef
+  EventEmitter
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {
-  MatDatepickerInput,
-  MatNativeDateModule,
-  MatGridTileHeaderCssMatStyler,
-  MatDatepickerInputEvent
-} from '@angular/material';
 
 @Component({
   selector: 'tq-signup',
@@ -23,10 +15,10 @@ export class SignupComponent implements OnInit {
   @Output()
   submitClicked: EventEmitter<any> = new EventEmitter<any>();
 
-  public showBirthDateNotSpecifiedError = false;
   public minDate: Date;
   public maxDate: Date;
   public birthDate: Date;
+  public showTermsError = false;
 
   constructor() {}
 
@@ -37,14 +29,18 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    this.showBirthDateNotSpecifiedError = !this.birthDate;
-    console.log(this.birthDate);
+    console.log(form);
+
+    if(!form.value.agree) {
+      this.showTermsError = true;
+    } else {
+      this.showTermsError = false;
+    }
+
     this.submitClicked.emit(form);
   }
 
   onDateChanged(date: Date): void {
     this.birthDate = date;
-    console.log(this.birthDate);
-    this.showBirthDateNotSpecifiedError = !this.birthDate;
   }
 }

@@ -29,15 +29,25 @@
       />
       <mat-error>Password must be at least 5 characters long.</mat-error>
     </mat-form-field>
-    <tq-material-ui-date-picker
-      [placeholder]="'Select your birthday'"
-      [minDate]="minDate"
-      [maxDate]="maxDate"
-      (dateChanged)="onDateChanged($event)"
-    ></tq-material-ui-date-picker>
-    <mat-error *ngIf="showBirthDateNotSpecifiedError"
-      >Please enter your birthday.</mat-error
+    <mat-form-field>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Your birthday"
+        ngModel
+        name="birthDate"
+        required
+        [max]="maxDate"
+        [min]="minDate"
+      />
+      <mat-error>Please enter your birthday.</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-checkbox ngModel name="agree" required
+      >Agree to terms and conditions.</mat-checkbox
     >
+    <mat-error *ngIf="showTermsError">Please agree to the terms and conditions.</mat-error>
     <button
       type="submit"
       mat-raised-button
