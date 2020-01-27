@@ -16,13 +16,15 @@ export class TrainingShellComponent implements OnInit, OnDestroy {
   public exerciseInProgress = false;
 
   ngOnInit() {
-    this.exerciseStateSubscription = this.trainingMediator.exerciseState.subscribe(state => {
-      if ((state === ExerciseState.Stopped) || (state === ExerciseState.NotStarted)) {
-        this.exerciseInProgress = false;
-      } else {
-        this.exerciseInProgress = true;
+    this.exerciseStateSubscription = this.trainingMediator.exerciseState.subscribe(
+      state => {
+        if (state === ExerciseState.NotStarted) {
+          this.exerciseInProgress = false;
+        } else {
+          this.exerciseInProgress = true;
+        }
       }
-    });
+    );
   }
 
   ngOnDestroy(): void {

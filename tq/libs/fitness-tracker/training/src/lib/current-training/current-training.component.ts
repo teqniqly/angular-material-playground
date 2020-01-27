@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  OnDestroy
+} from '@angular/core';
 import { TrainingMediatorService } from '../mediators/training-mediator.service';
 import { Subscription } from 'rxjs';
 import { ExerciseState } from '../models';
@@ -17,13 +22,15 @@ export class CurrentTrainingComponent implements OnInit, OnDestroy {
   constructor(public trainingMediator: TrainingMediatorService) {}
 
   ngOnInit() {
-    this.exerciseStateSubscription = this.trainingMediator.exerciseState.subscribe(state => {
-      if (state === ExerciseState.InProgress) {
-        this.exerciseInProgress = true;
-      } else {
-        this.exerciseInProgress = false;
+    this.exerciseStateSubscription = this.trainingMediator.exerciseState.subscribe(
+      state => {
+        if (state === ExerciseState.InProgress) {
+          this.exerciseInProgress = true;
+        } else {
+          this.exerciseInProgress = false;
+        }
       }
-    });
+    );
   }
 
   ngOnDestroy(): void {
@@ -38,5 +45,7 @@ export class CurrentTrainingComponent implements OnInit, OnDestroy {
     this.trainingMediator.resumeExercise();
   }
 
-  
+  onStopClicked(): void {
+    this.trainingMediator.stopExercise();
+  }
 }

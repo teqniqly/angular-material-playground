@@ -9,7 +9,9 @@ import { Exercise, ExerciseState } from '../models';
 export class TrainingMediatorService {
   private timer: NodeJS.Timer;
   private progress$ = new BehaviorSubject<number>(0);
-  private exerciseState$ = new BehaviorSubject<ExerciseState>(ExerciseState.NotStarted);
+  private exerciseState$ = new BehaviorSubject<ExerciseState>(
+    ExerciseState.NotStarted
+  );
   private progressValue = 0;
 
   constructor(private trainingService: TrainingService) {
@@ -43,7 +45,7 @@ export class TrainingMediatorService {
 
       if (this.progressValue >= 100) {
         this.progress$.next(100);
-        this.stopExercise();
+        this.exerciseState$.next(ExerciseState.Stopped);
       } else {
         this.progress$.next(this.progressValue);
       }
@@ -59,6 +61,7 @@ export class TrainingMediatorService {
   public stopExercise(): void {
     console.log('Stop exercise.');
     this.exerciseState$.next(ExerciseState.Stopped);
+    this.exerciseState$.next(ExerciseState.NotStarted);
     this.progress$.next(0);
     clearInterval(this.timer);
   }

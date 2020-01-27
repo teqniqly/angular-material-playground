@@ -1,6 +1,6 @@
 export enum ExerciseState {
-    NotStarted,
-    InProgress,
-    Paused,
-    Stopped
-  }
+  NotStarted,
+  InProgress,
+  Paused,
+  Stopped
+}

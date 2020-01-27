@@ -10,7 +10,6 @@ import { TrainingMediatorService } from '../mediators/training-mediator.service'
   styleUrls: ['./new-training.component.scss']
 })
 export class NewTrainingComponent implements OnInit {
-
   public exercises$: Observable<Exercise[]>;
 
   @Output()
