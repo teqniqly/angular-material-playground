@@ -5,24 +5,37 @@
 >
   <mat-progress-spinner
     mode="determinate"
-    [value]="progress"
+    [value]="trainingMediator.progress | async"
   ></mat-progress-spinner>
-  <h1>{{ progress }}%</h1>
+  <h1>{{ trainingMediator.progress | async }}%</h1>
   <p>Keep going! You can do it!</p>
+  <p *ngIf="(trainingMediator.progress | async) === 100">
+    Exercise complete! Great job!
+  </p>
   <button
-    *ngIf="exercising"
+    *ngIf="exerciseInProgress"
     mat-raised-button
     color="warn"
-    (click)="onStopClicked()"
+    (click)="onPauseClicked()"
   >
-    Stop
+    Pause
   </button>
+
   <button
-    *ngIf="!exercising"
+    *ngIf="!exerciseInProgress && (trainingMediator.progress | async) !== 100"
     mat-raised-button
     color="primary"
     (click)="onResumeClicked()"
   >
     Resume
+  </button>
+
+  <button
+    *ngIf="!exerciseInProgress && (trainingMediator.progress | async) === 100"
+    mat-raised-button
+    color="warn"
+    (click)="onStopClicked()"
+  >
+    Exit
   </button>
 </section>

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TrainingService } from '../services/training.service';
 import { Observable } from 'rxjs';
 import { Exercise } from '../models';
+import { TrainingMediatorService } from '../mediators/training-mediator.service';
 
 @Component({
   selector: 'tq-new-training',
@@ -14,10 +15,10 @@ export class NewTrainingComponent implements OnInit {
   @Output()
   submitClicked: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private trainingService: TrainingService) {}
+  constructor(public trainingMediator: TrainingMediatorService) {}
 
   ngOnInit() {
-    this.exercises$ = this.trainingService.getExercises();
+    this.exercises$ = this.trainingMediator.getExercises();
   }
 
   onSubmitClicked(): void {
