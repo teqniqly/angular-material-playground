@@ -256,6 +256,40 @@
           "styleext": "scss"
         }
       }
+    },
+    "fitness-tracker-chemistry": {
+      "projectType": "library",
+      "root": "libs/fitness-tracker/chemistry",
+      "sourceRoot": "libs/fitness-tracker/chemistry/src",
+      "prefix": "tq",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/fitness-tracker/chemistry/tsconfig.lib.json",
+              "libs/fitness-tracker/chemistry/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fitness-tracker/chemistry/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/fitness-tracker/chemistry/jest.config.js",
+            "tsConfig": "libs/fitness-tracker/chemistry/tsconfig.spec.json",
+            "setupFile": "libs/fitness-tracker/chemistry/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
