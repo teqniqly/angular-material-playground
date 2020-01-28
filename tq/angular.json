@@ -87,7 +87,10 @@
               "apps/fitness-tracker/tsconfig.app.json",
               "apps/fitness-tracker/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/fitness-tracker/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/fitness-tracker/**"
+            ]
           }
         },
         "test": {
@@ -121,8 +124,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/fitness-tracker-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/fitness-tracker-e2e/**"]
+            "tsConfig": [
+              "apps/fitness-tracker-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/fitness-tracker-e2e/**"
+            ]
           }
         }
       }
@@ -140,7 +148,10 @@
               "libs/fitness-tracker/auth/tsconfig.lib.json",
               "libs/fitness-tracker/auth/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/fitness-tracker/auth/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/fitness-tracker/auth/**"
+            ]
           }
         },
         "test": {
@@ -239,7 +250,10 @@
               "libs/ui/material-ui/tsconfig.lib.json",
               "libs/ui/material-ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/material-ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/material-ui/**"
+            ]
           }
         },
         "test": {
@@ -288,6 +302,65 @@
       "schematics": {
         "@nrwl/angular:component": {
           "styleext": "scss"
+        }
+      }
+    },
+    "functions-fitness-tracker-api": {
+      "root": "apps/functions/fitness-tracker-api",
+      "sourceRoot": "apps/functions/fitness-tracker-api/src",
+      "projectType": "application",
+      "prefix": "functions-fitness-tracker-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/functions/fitness-tracker-api",
+            "main": "apps/functions/fitness-tracker-api/src/main.ts",
+            "tsConfig": "apps/functions/fitness-tracker-api/tsconfig.app.json",
+            "assets": [
+              "apps/functions/fitness-tracker-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/functions/fitness-tracker-api/src/environments/environment.ts",
+                  "with": "apps/functions/fitness-tracker-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "functions-fitness-tracker-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/functions/fitness-tracker-api/tsconfig.app.json",
+              "apps/functions/fitness-tracker-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/functions/fitness-tracker-api/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/functions/fitness-tracker-api/jest.config.js",
+            "tsConfig": "apps/functions/fitness-tracker-api/tsconfig.spec.json"
+          }
         }
       }
     }
