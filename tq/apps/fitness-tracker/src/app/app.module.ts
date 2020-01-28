@@ -30,6 +30,13 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
             )
         },
         {
+          path: 'chem',
+          loadChildren: () =>
+            import('@tq/fitness-tracker/chemistry').then(
+              module => module.FitnessTrackerChemistryModule
+            )
+        },
+        {
           path: '**',
           loadChildren: () =>
             import('@tq/fitness-tracker/welcome').then(
