@@ -1,0 +1,7 @@
+{
+    "azureFunctions.deploySubpath": "apps\\functions\\fitness-tracker-api\\src\\app",
+    "azureFunctions.projectLanguage": "TypeScript",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "npm prune"
+}
